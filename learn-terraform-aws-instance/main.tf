@@ -15,10 +15,10 @@ provider "aws" { #                           configures the "provider" plugin; m
 
 resource "aws_instance" "app_server" { #        "Resource Type" "Resource Name" (Id will be "aws_instance.app_server"); define components of infra (virtual or physical)
   # ami           = "ami-830c94e3"     #        ORIGINAL image Id for Ubuntu OS
-  ami           = "ami-08d70e59c07c61a3a"       #        NEW AMI to test applying a resource update
+  ami           = "ami-08d70e59c07c61a3a"#      NEW AMI to test applying a resource update
   instance_type = "t2.micro"           #               instance type (AWS free tier)
 
   tags = {
-    Name = "ExampleAppServerInstance" #         name for instance
+    Name = var.instance_name #                  name for instance; can be variable or hard-coded
   }
 }
